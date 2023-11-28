@@ -1,0 +1,296 @@
+openapi: 3.0.1
+info:
+  title: Block api
+  version: 2.0.0
+servers:
+- url: http://{host}:{port}/{basePath}
+  description: The production API server
+  variables:
+    host:
+      enum:
+        - '87.103.198.150'
+        - '192.168.10.3'
+        - 'localhost'
+        - '192.192.56.1'
+      default: '192.168.10.3'
+      # default: '192.192.56.1'
+    port:
+      enum:
+        - '48001'
+        - '8001'
+        - '8000'
+      default: '8001'
+      # default: '8000'
+    basePath:
+      enum:
+        - "api/v1/json"
+      default: "api/v1/json"
+
+paths:
+  /?method=tags_info:
+    get:
+      description: Получаем список тэгов по 
+      parameters:
+        - name: tag
+          in: query
+          schema:
+            type: integer
+            description: Имя 
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Block'
+  /?method=check_point:
+    get:
+      description: Получаем список тэгов по 
+      parameters:
+        - name: x
+          in: query
+          description: X - координата 
+          schema:
+            type: number
+            format: double
+        - name: y
+          in: query
+          description: Y - координата  
+          schema:
+            type: number
+            format: double
+        - name: z
+          in: query
+          description: Z - координата  
+          schema:
+            type: number
+            format: double
+        - name: all
+          in: query
+          description: Все входящие блоки, если не используется, то выдет первые входящие блоки  
+          schema:
+            type: string
+            # format: double
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                 $ref: '#/components/schemas/CheckPoint'
+  /?method=check_point_rtls:
+    get:
+      description: Получаем список тэгов по 
+      parameters:
+        - name: cords
+          in: query
+          description: X - координата 
+          schema:
+            type: number
+            format: double
+        - name: y
+          in: query
+          description: Y - координата  
+          schema:
+            type: number
+            format: double
+        - name: z
+          in: query
+          description: Z - координата  
+          schema:
+            type: number
+            format: double
+        - name: all
+          in: query
+          description: Все входящие блоки, если не используется, то выдет первые входящие блоки  
+          schema:
+            type: string
+            # format: double
+  /?method=check_point_rtls_str:
+    get:
+      description: Получаем список тэгов по 
+      parameters:
+        - name: cords
+          in: query
+          description: Точка в формате 999,999 999,999 999,999 
+          schema:
+            type: string            
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                 $ref: '#/components/schemas/CheckPoint'
+  /?method=check_point_rtls_str2:
+    get:
+      description: Получаем список тэгов по 
+      parameters:
+        - name: cords
+          in: query
+          description: Точка в формате 999,999 999,999 999,999 
+          schema:
+            type: string            
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                 $ref: '#/components/schemas/CheckPoint'
+  /?method=KDTree:
+    get:
+      description: Получаем список блоков
+      parameters:
+        - name: block
+          in: query
+          description: Имя блока 
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+  
+  /?method=list_blocks:
+    get:
+      description: Получаем список всех загруженный блоков 
+      parameters:
+        - name: block
+          in: query
+          description: Имя блока 
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBlocks'
+  
+  /?method=LinkVert:
+    get:
+      description: Получаем список блоков
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+  /?method=ValidBlocks:
+    get:
+      description: Проверка вершин блоков (занимает много времени)
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+      
+components:
+  schemas:
+  
+    Block:
+      title: ArrayOfBlocks
+      type: object
+      properties:
+        error:
+          type: string
+        method:
+          type: string
+        response:
+          type: array
+          items:
+            type: object
+            properties:
+              block_names:
+                type: array
+                items:
+                  type: string
+              battery_state:
+                type: string
+              le_status:
+                type: string
+              sn:
+                type: integer
+              x:
+                type: integer
+              y:
+                type: integer
+              z:
+                type: integer
+              all:
+                type: string
+    CheckPoint:
+      title: Point
+      type: object
+      properties:
+        error:
+          type: string
+        method:
+          type: string
+        response:
+          type: array
+          items:
+            type: object
+            properties:
+              block_names:
+                type: array
+                items:
+                  type: string
+              x:
+                type: integer
+              y:
+                type: integer
+              z:
+                type: integer
+              x_c:
+                type: integer
+              y_c:
+                type: integer
+              z_c:
+                type: integer
+    ListBlocks:
+        title: Block
+        type: object
+        properties:
+          error:
+            type: string
+          method:
+            type: string
+          response:
+            type: array
+            items:
+              type: object
+              properties:
+                Block name:
+                  type: string
+                TypeObject:
+                  type: string
+                block_names:
+                  type: array
+                  items:
+                    type: string
+                vertexes:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      x:
+                        type: integer
+                      y: 
+                        type: integer
+                      z: 
+                        type: integer
+                      
+          
+    
