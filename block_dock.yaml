@@ -78,11 +78,11 @@ paths:
             application/json:
               schema:
                  $ref: '#/components/schemas/CheckPoint'
-  /?method=check_point_rtls:
+  /?method=check_point_UE:
     get:
-      description: Получаем список тэгов по 
+      description: Проверяем точку 
       parameters:
-        - name: cords
+        - name: coords
           in: query
           description: X - координата 
           schema:
@@ -105,14 +105,21 @@ paths:
           description: Все входящие блоки, если не используется, то выдет первые входящие блоки  
           schema:
             type: string
-            # format: double
-  /?method=check_point_rtls_str:
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+  /?method=check_point_str_div_100:
     get:
       description: Получаем список тэгов по 
       parameters:
         - name: cords
           in: query
-          description: Точка в формате 999,999 999,999 999,999 
+          description: Точка в формате XXX.XXX YYY.YYY ZZZ.ZZZ 
           schema:
             type: string            
       responses:
@@ -122,13 +129,13 @@ paths:
             application/json:
               schema:
                  $ref: '#/components/schemas/CheckPoint'
-  /?method=check_point_rtls_str2:
+  /?method=CheckPointUE:
     get:
       description: Получаем список тэгов по 
       parameters:
         - name: cords
           in: query
-          description: Точка в формате 999,999 999,999 999,999 
+          description: Точка в формате  (X=9160.000000,Y=8340.000000,Z=0.000000) 
           schema:
             type: string            
       responses:
@@ -195,7 +202,130 @@ paths:
               schema:
                 title: Result
                 type: string
-      
+  /?method=NearestBlock:
+    get:
+      description: Находим ближайшей блок 
+      parameters:
+        - name: block
+          in: query
+          description: Область, в которой ищатся ближайший блоки, если не указано то глобанльно - корпуса, если GK - то отметки в GK
+        - name: x
+          in: query
+          description: X - координата 
+          schema:
+            type: number
+            format: double
+        - name: y
+          in: query
+          description: Y - координата  
+          schema:
+            type: number
+            format: double
+        - name: z
+          in: query
+          description: Z - координата  
+          schema:
+            type: number
+            format: double
+        - name: deep
+          in: query
+          description: Глубина итерационного поиска по умолчанию равен единице  
+          schema:
+            type: number
+            format: integer
+        - name: all
+          in: query
+          description: Все входящие блоки, если не используется, то выдет первые входящие блоки  
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+  /?method=NearestBlockUE:
+    get:
+      description: Находим ближайший блок 
+      parameters:
+        - name: block
+          in: query
+          description: Область, в которой ищатся ближайший блоки, если не указано то глобанльно - корпуса, если GK - то отметки в GK
+          schema:
+            type: string     
+        - name: cords
+          in: query
+          description: Точка в формате  (X=9160.000000,Y=8340.000000,Z=0.000000) 
+          schema:
+            type: string      
+        - name: deep
+          in: query
+          description: Глубина итерационного поиска по умолчанию равен единице  
+          schema:
+            type: number
+            format: integer
+        - name: all
+          in: query
+          description: По умолчанию false - ищем ближайшие блок в списках блоков связанных с ближайшей точкой, true - ищем ближайший блок среди всех блоков в  области 
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+                
+  /?method=NearestPointToBlock:
+    get:
+      description: Находим ближайшую точку 
+      parameters:
+        - name: block
+          in: query
+          description: Область, в которой ищатся ближайший блоки, если не указано то глобанльно - корпуса, если GK - то отметки в GK
+          schema:
+            type: string     
+        - name: x
+          in: query
+          description: X - координата 
+          schema:
+            type: number
+            format: double
+        - name: y
+          in: query
+          description: Y - координата  
+          schema:
+            type: number
+            format: double
+        - name: z
+          in: query
+          description: Z - координата  
+          schema:
+            type: number
+            format: double
+        - name: deep
+          in: query
+          description: Глубина итерационного поиска по умолчанию равен единице  
+          schema:
+            type: number
+            format: integer
+        - name: all
+          in: query
+          description: По умолчанию false - ищем ближайшие блок в списках блоков связанных с ближайшей точкой, true - ищем ближайший блок среди всех блоков в  области 
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
 components:
   schemas:
   
@@ -292,5 +422,3 @@ components:
                       z: 
                         type: integer
                       
-          
-    
