@@ -246,6 +246,37 @@ paths:
               schema:
                 title: Result
                 type: string
+  /?method=NearestBlockStr:
+    get:
+      description: Находим ближайшей блок 
+      parameters:
+        - name: block
+          in: query
+          description: Область, в которой ищатся ближайший блоки, если не указано то глобанльно - корпуса, если GK - то отметки в GK
+        - name: coords
+          in: query
+          description: Координаты в формате {xx.xx,yy.yy,zz.zz}
+          schema:
+            type: string
+        - name: deep
+          in: query
+          description: Глубина итерационного поиска по умолчанию равен единице  
+          schema:
+            type: number
+            format: integer
+        - name: all
+          in: query
+          description: Все входящие блоки, если не используется, то выдет первые входящие блоки  
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
   /?method=NearestBlockUE:
     get:
       description: Находим ближайший блок 
