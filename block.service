@@ -1,0 +1,14 @@
+[Unit]
+  Description=Block_test
+  After=sshd.service
+[Service]
+  Environment="LD_LIBRARY_PATH=/home/mfss/StasLin/cmake/block/Poco/lib"
+  ExecStart=/usr/local/bin/Block_r bb_setting-path=/home/mfss/StasLin/cmake/block target_platform=linux 
+  Type=simple
+  KillMode=process
+  SyslogIdentifier=block
+  SyslogFacility=daemon 
+  Restart=on-failure
+ 
+[Install]
+  WantedBy=multi-user.target
