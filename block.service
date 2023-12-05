@@ -3,8 +3,9 @@
   After=sshd.service
 [Service]
   Environment="LD_LIBRARY_PATH=/home/mfss/StasLin/cmake/block/Poco/lib"
+  ExecStart=/home/mfss/StasLin/cmake/block/Block_Rep/Block bb_setting-path=/home/mfss/StasLin/cmake/block target_platform=linux 
   #ExecStart=/usr/local/bin/Block_r bb_setting-path=/home/mfss/StasLin/cmake/block target_platform=linux 
-  ExecStart=/root/.vs/Block/out/build/linux-release/block/Block bb_setting-path=/root/.vs/Block target_platform=linux 
+  #ExecStart=/root/.vs/Block/out/build/linux-release/block/Block bb_setting-path=/root/.vs/Block target_platform=linux 
   Type=simple
   KillMode=process
   SyslogIdentifier=block
