@@ -82,7 +82,7 @@ paths:
     get:
       description: Проверяем точку 
       parameters:
-        - name: coords
+        - name: x
           in: query
           description: X - координата 
           schema:
@@ -145,9 +145,27 @@ paths:
             application/json:
               schema:
                  $ref: '#/components/schemas/CheckPoint'
-  /?method=KDTree:
+  /?method=KDTreeCent:
     get:
-      description: Получаем список блоков
+      description: Получаем список центральных точек блоков и их ассоциация
+      parameters:
+        - name: block
+          in: query
+          description: Имя блока 
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+                
+  /?method=KDTreeVert:
+    get:
+      description: Получаем список вершин блоков  и их ассоциация
       parameters:
         - name: block
           in: query
@@ -317,7 +335,7 @@ paths:
       parameters:
         - name: block
           in: query
-          description: Область, в которой ищатся ближайший блоки, если не указано то глобанльно - корпуса, если GK - то отметки в GK
+          description: Область, в которой ищутся ближайший блоки, если не указано то глобанльно - корпуса, если GK - то отметки в GK
           schema:
             type: string     
         - name: x
@@ -357,9 +375,154 @@ paths:
               schema:
                 title: Result
                 type: string
+                
+  /?method=NearestPointToBlockStr:
+    get:
+      description: Находим ближайшую точку 
+      parameters:
+        - name: block
+          in: query
+          description: Область, в которой ищутся ближайший блоки, если не указано то глобанльно - корпуса, если GK - то отметки в GK
+          schema:
+            type: string     
+        - name: coords
+          in: query
+          description: Координаты в формате {xx.xx,yy.yy,zz.zz}
+          schema:
+            type: string
+        - name: deep
+          in: query
+          description: Глубина итерационного поиска по умолчанию равен единице  
+          schema:
+            type: number
+            format: integer
+        - name: all
+          in: query
+          description: По умолчанию false - ищем ближайшие блок в списках блоков связанных с ближайшей точкой, true - ищем ближайший блок среди всех блоков в  области 
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+      
+  /?method=CalcDist:
+    get:
+      description: Возвращает дистанцию между двумя точками 
+      parameters:
+        - name: p1
+          in: query
+          description: Координаты первой точки в формате {xx.xx,yy.yy,zz.zz}
+          schema:
+            type: string
+        - name: p2
+          in: query
+          description: Координаты второй точки в формате {xx.xx,yy.yy,zz.zz}
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+  
+  /?method=isNearestBlock:
+    get:
+      description: Проверяет являются ли заданные блоки ближайшими 
+      parameters:
+        - name: bl1
+          in: query
+          description: имя первого блока
+          schema:
+            type: string
+        - name: bl2
+          in: query
+          description: имя второго блока
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+                
+  /?method=isPointNeedLink:
+    get:
+      description: Проверяет необходимо ли точке принадлежащей bl1 добавить связь с bl2, т.к. она находится слишком близко 
+      parameters:
+        - name: bl1
+          in: query
+          description: имя первого блока
+          schema:
+            type: string
+        - name: bl2
+          in: query
+          description: имя второго блока
+          schema:
+            type: string
+        - name: coords
+          in: query
+          description: Координаты в формате {xx.xx,yy.yy,zz.zz}
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+                
+  /?method=GetShape:
+    get:
+      description: Возвращает массив точек описывающих фигуру 
+      parameters:
+        - name: block
+          in: query
+          description: имя блока который необходимо описать
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShapePoints'
+                
 components:
   schemas:
-  
+    ShapePoints:
+      title: ReturnValue
+      type: object
+      properties:
+        error:
+          type: string
+        method:
+          type: string
+        response:
+          type: array
+          items:
+            type: object
+            properties:
+              x:
+                type: integer
+              y:
+                type: integer
+              z:
+                type: integer
+          
     Block:
       title: ArrayOfBlocks
       type: object
