@@ -44,4 +44,6 @@ sleep_melleseconds=1000
 assign_block=true
 #logged_time_duration_enabled[bool] включить логирование времени обновления данных true -включено false - выключено
 is_logged_time_duration_enabled=true
-iest_api_full=false
+test_api_full=false
+coordinates_of_the_block_shape=/home/mfss/StasLin/cmake/block/Block_Rep
+
