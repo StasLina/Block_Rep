@@ -10,8 +10,10 @@
   KillMode=process
   SyslogIdentifier=block
   SyslogFacility=daemon 
+  RunTimeMaxSec=10s
   Restart=always
   RestartSec=5
- 
+  #RunTimeMaxSec=1d
+  #RunTimeMaxSec=10s 
 [Install]
   WantedBy=multi-user.target
