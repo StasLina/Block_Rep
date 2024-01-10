@@ -9,10 +9,10 @@
 RTLS_ADDRESS=192.168.10.5
 
 #bb_local-path[путь до основной дирректории] 
-bb_local-path=/home/mfss/StasLin/cmake/block
+-bb_local-path=/home/mfss/StasLin/cmake/block
 
 #bb_exception[путь до дирректории с логом ошибок]
-bb_exception-path=/home/mfss/StasLin/cmake/block
+-bb_exception-path=/home/mfss/StasLin/cmake/block
 
 #bb_server_soket[number]-порт используемый для API
 bb_server_soket=8001
@@ -45,5 +45,6 @@ assign_block=true
 #logged_time_duration_enabled[bool] включить логирование времени обновления данных true -включено false - выключено
 is_logged_time_duration_enabled=true
 test_api_full=false
-coordinates_of_the_block_shape=/home/mfss/StasLin/cmake/block/Block_Rep
+-coordinates_of_the_block_shape=/home/mfss/StasLin/cmake/block/Block_Rep
+coordinates_of_the_block_shape=/root/Block_Rep/
 
