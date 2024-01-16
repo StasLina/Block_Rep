@@ -46,5 +46,5 @@ assign_block=true
 is_logged_time_duration_enabled=true
 test_api_full=false
 -coordinates_of_the_block_shape=/home/mfss/StasLin/cmake/block/Block_Rep
-coordinates_of_the_block_shape=/root/Block_Rep/
+-coordinates_of_the_block_shape=/root/Block_Rep/
 
