@@ -43,8 +43,10 @@ sleep_melleseconds=1000
 #assign_block[bool] - true присваивание к ближайшей отметки если входит в корпус, false - отключено
 assign_block=true
 #logged_time_duration_enabled[bool] включить логирование времени обновления данных true -включено false - выключено
-is_logged_time_duration_enabled=true
+is_logged_time_duration_enabled=false
 test_api_full=false
 -coordinates_of_the_block_shape=/home/mfss/StasLin/cmake/block/Block_Rep
 -coordinates_of_the_block_shape=/root/Block_Rep/
+#type_work_math_handler[correct; translate] - тип работы мат обработчика
+type_work_math_handler=correct
 
