@@ -1,0 +1,21 @@
+version: '1.0'
+services:
+  MOTest:
+    build: ./DockerTest
+    ports:
+      - "8012:8001"
+      - "8013:8002"
+    volumes:
+      - /home/mfss/Block/Test/Config:/foo
+    restart: unless-stopped
+
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    ports:
+      - "8090:8080"
+    environment:
+      - SWAGGER_JSON=/foo/block_dock.yaml
+    volumes:
+      - ./Doc:/foo
+    depends_on:
+      - MOTest

@@ -1,0 +1,52 @@
+#Обязательные аргументы для запуска 
+#target_platform[windows;linux] приложение на котором запускается мат анализатор расположенный C:\source\repos\Block
+#bb_setting-path[путь до дирректории]обязательно должен содержать файл с настройкам BB_Setting.txt  C:\source\repos\Block
+#bb_local-path[путь до основной дирректории] C:\source\repos\Block должен обязательно содержать папку logs
+#bb_exception-path[путь до основной дирректории выводит список об ошибках] например C:\source\repos\Block
+
+
+#RTLS_ADDRESS(ip:protocol) Использумый RTLS адресс
+RTLS_ADDRESS=192.168.10.5
+
+#bb_local-path[путь до основной дирректории] 
+-bb_local-path=/home/mfss/StasLin/cmake/block
+
+#bb_exception[путь до дирректории с логом ошибок]
+-bb_exception-path=/home/mfss/StasLin/cmake/block
+
+#bb_server_soket[number]-порт используемый для API
+bb_server_soket=8001
+
+#RTLS_PROTOCOL[HTTP;HTTPS] тип подключения к RTLS
+RTLS_PROTOCOL=HTTPS
+
+#Настройка HMTML сервера
+
+#Разрешить HTML серверу держать соединение с пользователем открытым
+HTML_server_keepalive=true
+#HTML_server_max_queueadd[number] - максимальное количество клиентский соединений, которые ждут своей очередеи на обработку 
+HTML_server_max_queueadd=101
+#HTML_server_max_thread[number] - количеств рабочих, которые работают с клиентами и обрабатывают их запросы
+HTML_server_max_threads=17
+#HTML_server_timeout[number] Длительность удерживаемого соединения в секундах
+HTML_server_timeout=9
+
+#RTLS_API[CFG;BA] - использовать CFG или BA api
+RTLS_API=CFG
+#save_logs[true;false]- сохранение логов true - включено false - выключенл
+save_logs=true
+#medeterian_block[true;false] true -использовать серединный блок, то есть от основания уходит внииз и в верх || false- использовать полный блок, от основания уходим только в верх
+medeterian_block=true
+
+#sleep_melleseconds[number] время в милисекундах определяющее через какое время после окончания проверки запускать новую проверку
+sleep_melleseconds=1000
+#assign_block[bool] - true присваивание к ближайшей отметки если входит в корпус, false - отключено
+assign_block=true
+#logged_time_duration_enabled[bool] включить логирование времени обновления данных true -включено false - выключено
+is_logged_time_duration_enabled=false
+test_api_full=false
+-coordinates_of_the_block_shape=/home/mfss/StasLin/cmake/block/Block_Rep
+-coordinates_of_the_block_shape=/root/Block_Rep/
+#type_work_math_handler[correct; translate] - тип работы мат обработчика
+type_work_math_handler=correct
+
