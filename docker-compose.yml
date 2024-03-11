@@ -1,10 +1,10 @@
 version: '1.0'
 services:
-  MOTest:
+  mo_test:
     build: ./DockerTest
     ports:
-      - "8012:8001"
-      - "8013:8002"
+      - "8004:8001"
+      - "8005:8002"
     volumes:
       - /home/mfss/Block/Test/Config:/foo
     restart: unless-stopped
@@ -18,4 +18,4 @@ services:
     volumes:
       - ./Doc:/foo
     depends_on:
-      - MOTest
+      - mo_test
