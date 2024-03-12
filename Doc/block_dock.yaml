@@ -11,12 +11,12 @@ servers:
       enum:
         - '192.168.10.3'
         - 'localhost'
-      default: 'localhost'
+      default: '192.168.10.3'
     port:
       enum:
         - '8001'
-        - '8008'
-      default: '8001'
+        - '8004'
+      default: '8004'
       # default: '8000'
     basePath:
       enum:
