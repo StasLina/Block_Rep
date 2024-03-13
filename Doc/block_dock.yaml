@@ -434,7 +434,7 @@ paths:
           description: Область, в которой ищатся ближайший блоки, если не указано то глобанльно - корпуса, если GK - то отметки в GK
           schema:
             type: string     
-        - name: cords
+        - name: coords
           in: query
           description: Точка в формате  (X=9160.000000,Y=8340.000000,Z=0.000000) 
           schema:
