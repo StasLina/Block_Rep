@@ -15,8 +15,8 @@ servers:
     port:
       enum:
         - '8001'
-        - '8008'
-      default: '8001'
+        - '8004'
+      default: '8004'
       # default: '8000'
     basePath:
       enum:
@@ -177,7 +177,7 @@ paths:
             enum:
               - '192.168.10.3'
               - 'localhost'
-            default: '192.168.10.3'
+            default: 'localhost'
           port:
             enum:
               - '8001'
@@ -264,31 +264,190 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListBlocks'
-                
-  /CFG-API/v0.1/monitor/anchors:
-    servers:
-      - url: http://{host}:{port}
-        description: ""
-        variables:
-          host:
-            enum:
-              - '192.168.10.3'
-              - 'localhost'
-            default: '192.168.10.3'
-          port:
-            enum:
-              - '8001'
-              - '8008'
-            default: '8001'
+
+  /?method=anchors_info:
     get:
       tags: 
       - Данные
       summary: Получаем список анкеров с RTLS.
       description: Получаем список анкеров с RTLS.
       parameters:
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+
+  /?method=anchors_test:
+    get:
+      tags: 
+      - Отладка
+      summary: Получаем список анкеров с RTLS в виде таблицы с лшокациями.
+      description: Получаем список анкеров с RTLS.
+      parameters:
+        - name: layer
+          in: query
+          description: Имя уровня по умолчанию main
+          schema:
+            type: string 
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+  /?method=CheckPointMO:
+    get:
+      tags: 
+      - Отладка
+      description: Получаем список тэгов по 
+      parameters:
+        - name: coords
+          in: query
+          description: Точка в формате  {xx.xx,yy.yy,zz.zz} 
+          schema:
+            type: string            
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                 $ref: '#/components/schemas/CheckPoint'
+  /?method=CheckPointUE:
+    get:
+      tags: 
+      - Отладка
+      description: Получаем список точек 
+      parameters:
+        - name: coords
+          in: query
+          description: Точка в формате  (X=9160.000000,Y=8340.000000,Z=0.000000) 
+          schema:
+            type: string            
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                 $ref: '#/components/schemas/CheckPoint'
+  /?method=GetExpulsionMO:
+    get:
+      tags: 
+      - Отладка
+      description: Получаем список тэгов по 
+      parameters:
+        - name: coords
+          in: query
+          description: Точка в формате  {xx.xx,yy.yy,zz.zz} 
+          schema:
+            type: string           
+        - name: bl
+          in: query
+          description: Название блока например GK_Oper
+          schema:
+            type: string  
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                 title: Result
+                 type: string
+                 
+  /?method=GetExpulsionUE:
+    get:
+      tags: 
+      - Отладка
+      description: Получаем список тэгов по 
+      parameters:
+        - name: coords
+          in: query
+          description: Точка в формате  Точка в формате  (X=9160.000000,Y=8340.000000,Z=0.000000) 
+          schema:
+            type: string 
+        - name: bl
+          in: query
+          description: Название блока например GK_Oper
+          schema:
+            type: string 
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                 title: Result
+                 type: string
+                 
+  /?method=NearestBlockMO:
+    get:
+      tags: 
+      - Отладка
+      description: Находим ближайшей блок 
+      parameters:
         - name: block
           in: query
-          description: Имя блока 
+          description: Область, в которой ищатся ближайший блоки, если не указано то глобанльно - корпуса, если GK - то отметки в GK
+        - name: coords
+          in: query
+          description: Координаты в формате {xx.xx,yy.yy,zz.zz}
+          schema:
+            type: string
+        - name: deep
+          in: query
+          description: Глубина итерационного поиска по умолчанию равен единице  
+          schema:
+            type: number
+            format: integer
+        - name: all
+          in: query
+          description: Все входящие блоки, если не используется, то выдет первые входящие блоки  
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+                
+  /?method=NearestBlockUE:
+    get:
+      tags: 
+      - Отладка
+      description: Находим ближайший блок 
+      parameters:
+        - name: block
+          in: query
+          description: Область, в которой ищатся ближайший блоки, если не указано то глобанльно - корпуса, если GK - то отметки в GK
+          schema:
+            type: string     
+        - name: coords
+          in: query
+          description: Точка в формате  (X=9160.000000,Y=8340.000000,Z=0.000000) 
+          schema:
+            type: string      
+        - name: deep
+          in: query
+          description: Глубина итерационного поиска по умолчанию равен единице  
+          schema:
+            type: number
+            format: integer
+        - name: all
+          in: query
+          description: По умолчанию false - ищем ближайшие блок в списках блоков связанных с ближайшей точкой, true - ищем ближайший блок среди всех блоков в  области 
           schema:
             type: string
       responses:
@@ -392,24 +551,7 @@ paths:
             application/json:
               schema:
                  $ref: '#/components/schemas/CheckPoint'
-  /?method=CheckPointUE:
-    get:
-      tags: 
-      - Отладка
-      description: Получаем список тэгов по 
-      parameters:
-        - name: cords
-          in: query
-          description: Точка в формате  (X=9160.000000,Y=8340.000000,Z=0.000000) 
-          schema:
-            type: string            
-      responses:
-        200:
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                 $ref: '#/components/schemas/CheckPoint'
+
   /?method=KDTreeCent:
     get:
       tags: 
@@ -514,74 +656,6 @@ paths:
         - name: all
           in: query
           description: Все входящие блоки, если не используется, то выдет первые входящие блоки  
-          schema:
-            type: string
-      responses:
-        200:
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                title: Result
-                type: string
-  /?method=NearestBlockStr:
-    get:
-      tags: 
-      - Отладка
-      description: Находим ближайшей блок 
-      parameters:
-        - name: block
-          in: query
-          description: Область, в которой ищатся ближайший блоки, если не указано то глобанльно - корпуса, если GK - то отметки в GK
-        - name: coords
-          in: query
-          description: Координаты в формате {xx.xx,yy.yy,zz.zz}
-          schema:
-            type: string
-        - name: deep
-          in: query
-          description: Глубина итерационного поиска по умолчанию равен единице  
-          schema:
-            type: number
-            format: integer
-        - name: all
-          in: query
-          description: Все входящие блоки, если не используется, то выдет первые входящие блоки  
-          schema:
-            type: string
-      responses:
-        200:
-          description: Successful response
-          content:
-            application/json:
-              schema:
-                title: Result
-                type: string
-  /?method=NearestBlockUE:
-    get:
-      tags: 
-      - Отладка
-      description: Находим ближайший блок 
-      parameters:
-        - name: block
-          in: query
-          description: Область, в которой ищатся ближайший блоки, если не указано то глобанльно - корпуса, если GK - то отметки в GK
-          schema:
-            type: string     
-        - name: cords
-          in: query
-          description: Точка в формате  (X=9160.000000,Y=8340.000000,Z=0.000000) 
-          schema:
-            type: string      
-        - name: deep
-          in: query
-          description: Глубина итерационного поиска по умолчанию равен единице  
-          schema:
-            type: number
-            format: integer
-        - name: all
-          in: query
-          description: По умолчанию false - ищем ближайшие блок в списках блоков связанных с ближайшей точкой, true - ищем ближайший блок среди всех блоков в  области 
           schema:
             type: string
       responses:
