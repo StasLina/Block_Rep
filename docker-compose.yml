@@ -14,7 +14,7 @@ services:
       - "8001:8001"
       - "8002:8002"
     volumes:
-      - /home/mfss/Block/Test/Config:/foo
+      - /home/mfss/Block/Prod/Config:/foo
     restart: unless-stopped
 
   swagger-ui:
