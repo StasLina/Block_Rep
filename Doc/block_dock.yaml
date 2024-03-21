@@ -230,8 +230,12 @@ paths:
       summary: Получаем список тэгов с анкерами.
       description: Получаем список анкеров с RTLS.
       parameters:
+        - name: tag
+          in: query
+          required: true
           schema:
-            type: string
+            type: integer
+            description: Имя тэга
       responses:
         200:
           description: Successful response
@@ -288,12 +292,6 @@ paths:
         - Данные
       summary: Получаем список анкеров, 
       description: Получаем список анкеров, используется МО для корреции тэга по анкерам 
-      parameters:
-        - name: block
-          in: query
-          description: Имя блока 
-          schema:
-            type: string
       responses:
         200:
           description: Successful response
@@ -308,9 +306,6 @@ paths:
       - Данные
       summary: Получаем список анкеров с RTLS.
       description: Получаем список анкеров с RTLS.
-      parameters:
-          schema:
-            type: string
       responses:
         200:
           description: Successful response
