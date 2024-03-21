@@ -8,6 +8,14 @@ services:
     volumes:
       - /home/mfss/Block/Test/Config:/foo
     restart: unless-stopped
+  mo_prod:
+    build: ./DockerProd
+    ports:
+      - "8001:8001"
+      - "8002:8002"
+    volumes:
+      - /home/mfss/Block/Test/Config:/foo
+    restart: unless-stopped
 
   swagger-ui:
     image: swaggerapi/swagger-ui
