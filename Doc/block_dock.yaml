@@ -202,8 +202,6 @@ paths:
               schema:
                 title: Result
                 type: string
-                
-                
 
   /?method=tags_info:
     get:
@@ -224,7 +222,45 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Block'
-
+                
+  /?method=tags_monitor:
+    get:
+      tags: 
+      - Данные
+      summary: Получаем список тэгов с анкерами.
+      description: Получаем список анкеров с RTLS.
+      parameters:
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+                
+  /?method=get_rtls_points:
+    get:
+      tags: 
+        - Данные
+      summary: Получаем список тэгов с ртлс
+      description: Получаем список тэгов с ртлс 
+      parameters:
+        - name: block
+          in: query
+          description: Имя блока 
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBlocks'
+   
   /?method=list_blocks:
     get:
       tags: 
@@ -245,12 +281,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListBlocks'
                 
-  /?method=get_rtls_points:
+  
+  /?method=list_anchors:
     get:
       tags: 
         - Данные
-      summary: Получаем список точек с ртлс
-      description: Получаем список точек с ртлс 
+      summary: Получаем список анкеров, 
+      description: Получаем список анкеров, используется МО для корреции тэга по анкерам 
       parameters:
         - name: block
           in: query
@@ -264,7 +301,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListBlocks'
-
+                
   /?method=anchors_info:
     get:
       tags: 
@@ -282,7 +319,7 @@ paths:
               schema:
                 title: Result
                 type: string
-
+  
   /?method=anchors_test:
     get:
       tags: 
