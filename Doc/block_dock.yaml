@@ -534,13 +534,6 @@ paths:
       - Новое
       summary: Сохраняем настройки.
       description: Сохраняем настройки
-      parameters:
-        - name: tag
-          in: query
-          required: true
-          schema:
-            type: integer
-            description: Имя тэга
       responses:
         200:
           description: Successful response
@@ -556,13 +549,6 @@ paths:
       - Новое
       summary: Получаем список блоков с уровнем Main.
       description: Получаем список блоков с уровнем Main.
-      parameters:
-        - name: tag
-          in: query
-          required: true
-          schema:
-            type: integer
-            description: Имя тэга
       responses:
         200:
           description: Successful response
