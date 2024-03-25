@@ -495,15 +495,8 @@ paths:
     get:
       tags: 
       - Новое
-      summary: Получаем список тэгов с анкерами.
-      description: Получаем список анкеров с RTLS.
-      parameters:
-        - name: tag
-          in: query
-          required: true
-          schema:
-            type: integer
-            description: Имя тэга
+      summary: Делаем тестовое сохранение.
+      description: Делаем тестовое сохранение.
       responses:
         200:
           description: Successful response
@@ -517,7 +510,7 @@ paths:
     get:
       tags: 
       - Новое
-      summary: Получаем список тэгов с анкерами.
+      summary: Получаем список тэгов с анкерами динамически.
       description: Получаем список анкеров с RTLS.
       parameters:
         - name: tag
@@ -539,8 +532,8 @@ paths:
     get:
       tags: 
       - Новое
-      summary: Получаем список тэгов с анкерами.
-      description: Получаем список анкеров с RTLS.
+      summary: Сохраняем настройки.
+      description: Сохраняем настройки
       parameters:
         - name: tag
           in: query
@@ -556,12 +549,13 @@ paths:
               schema:
                 title: Result
                 type: string
+                
   /?method=GetOnlyBlocksLayerMain:
     get:
       tags: 
       - Новое
-      summary: Получаем список тэгов с анкерами.
-      description: Получаем список анкеров с RTLS.
+      summary: Получаем список блоков с уровнем Main.
+      description: Получаем список блоков с уровнем Main.
       parameters:
         - name: tag
           in: query
