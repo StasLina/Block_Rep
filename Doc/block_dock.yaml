@@ -490,6 +490,73 @@ paths:
               schema:
                 title: Result
                 type: string
+   
+  /?method=TestSave:
+    get:
+      tags: 
+      - Новое
+      summary: Делаем тестовое сохранение.
+      description: Делаем тестовое сохранение.
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+                
+  /?method=GetLogMonitorTag:
+    get:
+      tags: 
+      - Новое
+      summary: Получаем список тэгов с анкерами динамически.
+      description: Получаем список анкеров с RTLS.
+      parameters:
+        - name: tag
+          in: query
+          required: true
+          schema:
+            type: integer
+            description: Имя тэга
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+                
+  /?method=SafeSettings:
+    get:
+      tags: 
+      - Новое
+      summary: Сохраняем настройки.
+      description: Сохраняем настройки
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+                
+  /?method=GetOnlyBlocksLayerMain:
+    get:
+      tags: 
+      - Новое
+      summary: Получаем список блоков с уровнем Main.
+      description: Получаем список блоков с уровнем Main.
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
                 
   /?method=check_point:
     get:
