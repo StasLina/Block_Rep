@@ -64,6 +64,31 @@ paths:
               schema:
                 title: Result
                 type: string
+                
+  /?method=SetSettingsParameter:
+    put:
+      tags: 
+      - Обслуживание
+      summary: Обновляем настройки
+      description: Обновляем настройки
+      requestBody: 
+        content:
+          application/json:
+            schema:
+              title: body
+              type: string
+              example: "type: type_work_math_handler
+                        value: correct
+                        "
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+
   /pid:
     servers:
       - url: http://{host}:{port}
