@@ -26,4 +26,14 @@ services:
     volumes:
       - ./Doc:/foo
     depends_on:
-      - mo_test
+      - mo_test  
+  portainer:
+    image: portainer/portainer-ce
+    ports:
+      - "8089:9000"
+      - "8088:8000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock 
+      - portainer_data:/data 
+    restart: always
+      
