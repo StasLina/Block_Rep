@@ -16,7 +16,6 @@ services:
     volumes:
       - /home/mfss/Block/Prod:/foo
     restart: unless-stopped
-
   swagger-ui:
     image: swaggerapi/swagger-ui
     ports:
@@ -36,4 +35,5 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock 
       - portainer_data:/data 
     restart: always
-      
+      - mo_test
+    restart: unless-stopped
