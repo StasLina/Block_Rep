@@ -1,4 +1,5 @@
 {
+  "max_count_leave":3,
   "list_blocks_leave_handle": [
   {
     "name": "GK_Oper",
