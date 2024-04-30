@@ -583,6 +583,41 @@ paths:
                 title: Result
                 type: string
                 
+  /?method=GetAnchorLog:
+    get:
+      tags: 
+      - Новое
+      summary: Получаем лог с анкеров.
+      parameters:
+        - name: tag
+          in: query
+          required: true
+          schema:
+            type: integer
+            description: Имя тэга
+        - name: begin_time
+          in: query
+          required: true
+          schema:
+            type: string
+            description: Дата начала времени 2016-12-26 15:53:22 -05:00
+        - name: end_time
+          in: query
+          required: true
+          schema:
+            type: string
+            description: Даа конца времени 2016-12-26 15:53:22 -05:00
+            
+      description: Получаем список блоков с уровнем Main.
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+                
   /?method=check_point:
     get:
       tags: 
