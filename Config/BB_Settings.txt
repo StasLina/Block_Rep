@@ -58,4 +58,4 @@ postgres_host=192.168.10.2
 postgres_database=mo_database
 postgres_password=
 postgres_user=mo_user
-postgres_password='VJntantkm1'
+postgres_password='VJntantkm'
