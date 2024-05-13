@@ -1,0 +1,509 @@
+[
+  {
+	"BlockName": "SC_Flight_3.000-0.000_1",
+	"LinkedBlocks": [
+	  "SC_Flight_3.000-0.000_1",
+	  "SC_0",
+	  "SC_3000_1"
+	]
+  },
+  {
+	"BlockName": "BP_Flight_0.000-Landing1",
+	"LinkedBlocks": [
+	  "BP_Flight_0.000-Landing1",
+	  "BP_Landindg1"
+	]
+  },
+  {
+	"BlockName": "BP_Landing3",
+	"LinkedBlocks": [
+	  "BP_11000",
+	  "BP_Flight_Landing3-11.000",
+	  "BP_Flight_Landing2-Landing3"
+	]
+  },
+  {
+	"BlockName": "BP_Landindg1",
+	"LinkedBlocks": [
+	  "SC",
+	  "BP_Flight_0.000-Landing1",
+	  "BP_Landindg1",
+	  "BP_Flight_5.000-Landing1"
+	]
+  },
+  {
+	"BlockName": "SC_Landing_1",
+	"LinkedBlocks": [
+	  "SC_7000_2",
+	  "SC_Landing_1",
+	  "SC_3000_1",
+	  "SC_Flight_7.000-Landing_1",
+	  "SC_Flight_Landing_1-3.000"
+	]
+  },
+  {
+	"BlockName": "Flight_LK-0.000_1",
+	"LinkedBlocks": [
+	]
+  },
+  {
+	"BlockName": "Flight_LK-0.000_2",
+	"LinkedBlocks": [
+	  "Flight_LK-0.000_2"
+	]
+  },
+  {
+	"BlockName": "BP_Flight_5.000-Landing1",
+	"LinkedBlocks": [
+	  "BP_5000",
+	  "BP_Landindg1",
+	  "BP_Flight_5.000-Landing1"
+	]
+  },
+  {
+	"BlockName": "SC_Flight_3.000-0.000_2",
+	"LinkedBlocks": [
+	  "SC_0",
+	  "SC_3000_2",
+	  "SC_Flight_3.000-0.000_2"
+	]
+  },
+  {
+	"BlockName": "BP_Flight_Landing3-11.000",
+	"LinkedBlocks": [
+	  "BP_11000",
+	  "BP_Landing3"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_0.000-3.000_4",
+	"LinkedBlocks": [
+	  "GK_0000_3"
+	]
+  },
+  {
+	"BlockName": "BP_Flight_4.000-5.000",
+	"LinkedBlocks": [
+	  "BP_5000",
+	  "BP_4000",
+	  "BP_Flight_4.000-5.000"
+	]
+  },
+  {
+	"BlockName": "BP_Flight_Landing2-4.000",
+	"LinkedBlocks": [
+	  "BP_4000",
+	  "BP_Flight_Landing2-Landing3"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_3.000_2_4-4.000",
+	"LinkedBlocks": [
+	  "GK_3000_2_4",
+	  "GK_4000",
+	  "GK_Flight_3.000_2_4-4.000"
+	]
+  },
+  {
+	"BlockName": "BP_Landindg2",
+	"LinkedBlocks": [
+	  "BP_Flight_Landing2-Landing3"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_Landing_2",
+	"LinkedBlocks": [
+	  "GK_Flight_Landing_2",
+	  "GK_Flight_Landing_2-4.200",
+	  "GK_Flight_3.000-Landing_2",
+	  "GK_Flight_Landing_2-Nad_sgust"
+	]
+  },
+  {
+	"BlockName": "BP_Flight_Landing2-Landing3",
+	"LinkedBlocks": [
+	  "BP_11000",
+	  "BP_Landing3",
+	  "BP_Flight_Landing2-4.000",
+	  "BP_Landindg2"
+	]
+  },
+  {
+	"BlockName": "SC_Flight_7.000-Landing_1",
+	"LinkedBlocks": [
+	  "SC_7000_2",
+	  "SC_Landing_1",
+	  "SC_3000_1",
+	  "SC_Flight_7.000-Landing_1"
+	]
+  },
+  {
+	"BlockName": "SC_Flight_11.700-14.000_2",
+	"LinkedBlocks": [
+	  "SC_11700"
+	]
+  },
+  {
+	"BlockName": "SC_Flight_Landing_1-3.000",
+	"LinkedBlocks": [
+	  "SC_Landing_1",
+	  "SC_3000_1",
+	  "SC_Flight_Landing_1-3.000"
+	]
+  },
+  {
+	"BlockName": "SC_Flight_7.000-3.000_2",
+	"LinkedBlocks": [
+	  "SC_7000_3",
+	  "SC_3000_1",
+	  "SC_Flight_7.000-3.000_2"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_Landing_1",
+	"LinkedBlocks": [
+	  "GK_0000_3",
+	  "GK_Flight_0.000-Landing_1",
+	  "GK_Flight_Landing_1-4.000"
+	]
+  },
+  {
+	"BlockName": "SC_Flight_16.500-Landing_2",
+	"LinkedBlocks": [
+	  "SC_16500",
+	  "SC_11500",
+	  "SC_Flight_16.500-Landing_2",
+	  "SC_Landing_2"
+	]
+  },
+  {
+	"BlockName": "SC_Flight_7.000-9.300_2",
+	"LinkedBlocks": [
+	  "SC_7000_3",
+	  "SC_9300"
+	]
+  },
+  {
+	"BlockName": "SC_Flight_11.700-14.000_1",
+	"LinkedBlocks": [
+	  "SC_14000",
+	  "SC_11700"
+	]
+  },
+  {
+	"BlockName": "SC_Flight_7.000-3.000_1",
+	"LinkedBlocks": [
+	  "SC_7000_1",
+	  "SC_3000_1"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_3.000-6.600",
+	"LinkedBlocks": [
+	  "GK_3000_1",
+	  "GK_6600_1"
+	]
+  },
+  {
+	"BlockName": "SC_Landing_2",
+	"LinkedBlocks": [
+	  "SC_11500",
+	  "SC_Flight_16.500-Landing_2",
+	  "SC_Landing_2",
+	  "SC_Flight_Landing_2-11.500"
+	]
+  },
+  {
+	"BlockName": "SC_Flight_9.300-11.700_2",
+	"LinkedBlocks": [
+	  "SC_9300",
+	  "SC_11700"
+	]
+  },
+  {
+	"BlockName": "SC_Flight_7.000-3.000_3",
+	"LinkedBlocks": [
+	  "SC_7000_3",
+	  "SC_3000_2",
+	  "SC_Flight_7.000-3.000_3"
+	]
+  },
+  {
+	"BlockName": "SC_Flight_7.000-9.300_1",
+	"LinkedBlocks": [
+	  "SC_7000_3",
+	  "SC_9300",
+	  "SC_Flight_7.000-9.300_1"
+	]
+  },
+  {
+	"BlockName": "SC_Flight_9.300-11.700_1",
+	"LinkedBlocks": [
+	  "SC_9300",
+	  "SC_11700"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_3.000-BP_Perehod_1",
+	"LinkedBlocks": [
+	  "GK_3000_1"
+	]
+  },
+  {
+	"BlockName": "SC_Flight_14.000-16.500_2",
+	"LinkedBlocks": [
+	]
+  },
+  {
+	"BlockName": "SC_Flight_14.000-16.500_1",
+	"LinkedBlocks": [
+	  "SC_14000"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_3.000-BP_Perehod_2",
+	"LinkedBlocks": [
+	  "GK_3000_1",
+	  "BP_Perehod",
+	  "GK_Flight_3.000-BP_Perehod_2"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_0.000-4.200_1",
+	"LinkedBlocks": [
+	  "GK_0000_2",
+	  "GK_4200"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_13.900-11.700",
+	"LinkedBlocks": [
+	  "GK_11700",
+	  "GK_13900"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_0.000-Landing_1",
+	"LinkedBlocks": [
+	  "GK_0000_3",
+	  "GK_Flight_Landing_1"
+	]
+  },
+  {
+	"BlockName": "SC_Flight_Landing_2-11.500",
+	"LinkedBlocks": [
+	  "SC_11500",
+	  "SC_Landing_2"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_0.000-3.000_1",
+	"LinkedBlocks": [
+	  "GK_0000_3",
+	  "GK_3000_1"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_Landing_2-4.200",
+	"LinkedBlocks": [
+	  "GK_4200",
+	  "GK_Flight_Landing_2",
+	  "GK_Flight_Landing_2-4.200"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_0.000-3.000_3",
+	"LinkedBlocks": [
+	  "GK_0000_3",
+	  "GK_3000_2_1",
+	  "GK_Flight_0.000-3.000_3"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_0.000-3.000_2",
+	"LinkedBlocks": [
+	  "GK_3000_2_3",
+	  "GK_0000_3",
+	  "GK_Flight_0.000-3.000_2"
+	]
+  },
+  {
+	"BlockName": "GK_Landing_3",
+	"LinkedBlocks": [
+	  "GK_10900",
+	  "GK_Landing_3",
+	  "GK_Flight_Landing_3-10.900",
+	  "GK_Flight_6.600-Landing_3"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_Landing_1-4.000",
+	"LinkedBlocks": [
+	  "GK_0000_3",
+	  "GK_4000",
+	  "GK_Flight_Landing_1",
+	  "GK_Flight_Landing_1-4.000"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_7.800-10.200",
+	"LinkedBlocks": [
+	  "GK_7800",
+	  "GK_10200_server"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_3.000-Landing_2",
+	"LinkedBlocks": [
+	  "GK_3000_2_1",
+	  "GK_Flight_Landing_2",
+	  "GK_Flight_3.000-Landing_2"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_Landing_2-Nad_sgust",
+	"LinkedBlocks": [
+	  "GK_Flight_Landing_2",
+	  "GK_Flight_Landing_2-Nad_sgust"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_6.600-8.900",
+	"LinkedBlocks": [
+	  "GK_8900_2",
+	  "GK_6600_1",
+	  "GK_Flight_6.600-8.900"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_6.600-10.200",
+	"LinkedBlocks": [
+	  "GK_6600_1",
+	  "GK_10200_spiral",
+	  "GK_Flight_6.600-10.200"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_Landing_3-10.900",
+	"LinkedBlocks": [
+	  "GK_10900",
+	  "GK_Landing_3"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_6.600-7.800",
+	"LinkedBlocks": [
+	  "GK_7800",
+	  "GK_6600_2",
+	  "GK_Flight_6.600-7.800"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_10.200-14.000",
+	"LinkedBlocks": [
+	  "GK_13100",
+	  "GK_14000_1",
+	  "GK_Flight_10.200-14.000"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_Nad_sgust_7.500",
+	"LinkedBlocks": [
+	]
+  },
+  {
+	"BlockName": "GK_Flight_11.900-10.200",
+	"LinkedBlocks": [
+	  "GK_10900",
+	  "GK_10200_spiral",
+	  "GK_Flight_11.900-10.200"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_14.000-14.500",
+	"LinkedBlocks": [
+	  "GK_14500",
+	  "GK_14000_2",
+	  "GK_Flight_14.000-14.500"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_4.000-6.600_2",
+	"LinkedBlocks": [
+	  "GK_4000",
+	  "GK_6600_2",
+	  "GK_Flight_4.000-6.600_2"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_14.000-13.900",
+	"LinkedBlocks": [
+	  "GK_14500",
+	  "GK_13900",
+	  "GK_Flight_14.000-13.900"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_6.600-Landing_3",
+	"LinkedBlocks": [
+	  "GK_6600_1",
+	  "GK_10900",
+	  "GK_Landing_3"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_Nad_sgust-6.600",
+	"LinkedBlocks": [
+	  "GK_6600_2"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_13.900-15.500",
+	"LinkedBlocks": [
+	  "GK_13900"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_10.200-13.100",
+	"LinkedBlocks": [
+	  "GK_13100",
+	  "GK_10200_spiral"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_10.900-10.200",
+	"LinkedBlocks": [
+	  "GK_Oper",
+	  "GK_10900",
+	  "GK_Flight_10.900-10.200"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_11.700-8.750_2",
+	"LinkedBlocks": [
+	  "GK_8750",
+	  "GK_11700"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_14.000-15.600",
+	"LinkedBlocks": [
+	  "GK_15600",
+	  "GK_14000_2",
+	  "GK_Flight_14.000-15.600"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_11.700-8.750_1",
+	"LinkedBlocks": [
+	  "GK_8750",
+	  "GK_11700"
+	]
+  },
+  {
+	"BlockName": "GK_Flight_10.200-8.750",
+	"LinkedBlocks": [
+	  "GK_8750"
+	]
+  }
+]

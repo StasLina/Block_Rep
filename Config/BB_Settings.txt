@@ -52,9 +52,13 @@ is_graph_distance_calc=true
 #max_speed[double]
 max_speed=1.5
 
+
 postgres_port=5432
 postgres_host=192.168.10.2
 postgres_database=mo_database
 postgres_password=
 postgres_user=mo_user
-postgres_password='VJntantkm1'
+postgres_password='VJntantkm'
+
+ue_host=192.168.0.103
+ue_port=8282
