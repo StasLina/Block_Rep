@@ -56,9 +56,11 @@ max_speed=1.5
 postgres_port=5432
 postgres_host=192.168.10.2
 postgres_database=mo_database
-postgres_password=
 postgres_user=mo_user
 postgres_password='VJntantkm'
 
 ue_host=192.168.10.5
 ue_port=8282
+
+is_sent_update_speed=false
+is_sent_update_tag_power_db=false
