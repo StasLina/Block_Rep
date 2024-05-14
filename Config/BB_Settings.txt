@@ -59,7 +59,7 @@ postgres_database=mo_database
 postgres_user=mo_user
 postgres_password='VJntantkm'
 
-ue_host=192.168.10.5
+ue_host=192.168.10.250
 ue_port=8282
 
 is_sent_update_speed=false
