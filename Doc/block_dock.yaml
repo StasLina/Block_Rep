@@ -77,9 +77,7 @@ paths:
             schema:
               title: body
               type: string
-              example: "type: type_work_math_handler
-                        value: correct
-                        "
+              example: {"type": "type_work_math_handler", "value": "correct"}
       responses:
         200:
           description: Successful response
@@ -516,12 +514,12 @@ paths:
                 title: Result
                 type: string
    
-  /?method=TestSave:
+  /?method=TestSaveSettings:
     get:
       tags: 
-      - Новое
-      summary: Делаем тестовое сохранение.
-      description: Делаем тестовое сохранение.
+      - Тестрование
+      summary: Делаем тестовое сохранение настроек.
+      description: Делаем тестовое сохранение настроек. Собираем текущие настройки МО в JSON и и потом их же устаналиваем
       responses:
         200:
           description: Successful response
@@ -531,12 +529,27 @@ paths:
                 title: Result
                 type: string
                 
-  /?method=GetLogMonitorTag:
+  /?method=StopAllMonitoring:
     get:
       tags: 
-      - Новое
-      summary: Получаем список тэгов с анкерами динамически.
-      description: Получаем список анкеров с RTLS.
+      - Мониторинг
+      summary: Останавливаем весь мониторинг
+      description: Останавливаем весь мониторинг, в начале каждого мониторинга высвечивается строка по закрытию мониторинга которую надо ввести по окончании, если не ввели то выполняем этот метод  
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string 
+                
+  /?method=GetLogTag:
+    get:
+      tags: 
+      - Мониторинг
+      summary: Получаем сведения об обработке тэга МО в реальном времени
+      description: Получаем сведения об обработке тэга МО в реальном времени
       parameters:
         - name: tag
           in: query
@@ -544,6 +557,134 @@ paths:
           schema:
             type: integer
             description: Имя тэга
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+                
+  /?method=GetLogAll:
+    get:
+      tags: 
+      - Мониторинг
+      summary: Получаем сведения об обработке тэгов МО в реальном времени
+      description: Получаем сведения об обработке тэгов МО в реальном времени
+      parameters:
+        - name: stage
+          in: query
+          required: false
+          schema:
+            type: integer
+          description: По какой стадии хотим получать логи
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+                          
+  /?method=GetLogMonitorTag:
+    get:
+      tags: 
+      - Мониторинг
+      summary: Получаем список анкеров которые видят тэг.
+      description: Получаем список анкеров которые видят тэг. Все анкера автоматически логируются в базу данных
+      parameters:
+        - name: tag
+          in: query
+          required: true
+          schema:
+            type: integer
+            description: Имя тэга
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+                
+  /?method=FreeLogTag:
+    get:
+      tags: 
+      - Мониторинг
+      summary: Освобождаем тэг от мониторинга
+      description: Освобождаем тэг от мониторинга
+      parameters:
+        - name: tag
+          in: query
+          required: true
+          schema:
+            type: integer
+          description:  номер тэга
+        - name: addr
+          in: query
+          required: true
+          schema:
+            type: integer
+          description:  уникальный идентификатор  
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+                
+  /?method=FreeLogMonitorTag:
+    get:
+      tags: 
+      - Мониторинг
+      summary: Освобождаем тэг от мониторинга по анкерам
+      description: Освобождаем тэг от мониторинга по анкерам
+      parameters:
+        - name: tag
+          in: query
+          required: true
+          schema:
+            type: integer
+          description:  номер тэга
+        - name: addr
+          in: query
+          required: true
+          schema:
+            type: integer
+          description:  уникальный идентификатор  
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+                
+  /?method=FreeLogAll:
+    get:
+      tags: 
+      - Мониторинг
+      summary: Освобождаем тэги от мониторинга
+      description: Освобождаем тэг от мониторинга
+      parameters:
+        - name: tag
+          in: query
+          required: true
+          schema:
+            type: integer
+          description:  номер тэга
+        - name: addr
+          in: query
+          required: true
+          schema:
+            type: integer
+          description:  уникальный идентификатор  
       responses:
         200:
           description: Successful response
@@ -556,9 +697,9 @@ paths:
   /?method=SafeSettings:
     get:
       tags: 
-      - Новое
+      - Обслуживание
       summary: Сохраняем настройки.
-      description: Сохраняем настройки
+      description: Сохраняем настройки (пока что без записи в файл) и возвращаем сохранённый файл настроек в формате JSON
       responses:
         200:
           description: Successful response
@@ -571,7 +712,7 @@ paths:
   /?method=GetOnlyBlocksLayerMain:
     get:
       tags: 
-      - Новое
+      - Данные
       summary: Получаем список блоков с уровнем Main.
       description: Получаем список блоков с уровнем Main.
       responses:
@@ -583,11 +724,11 @@ paths:
                 title: Result
                 type: string
                 
-  /?method=GetAnchorLog:
+  /?method=GetTagLogAndAnchors:
     get:
       tags: 
       - Новое
-      summary: Получаем лог с анкеров.
+      summary: Получаем лог по тэгу с даннными анкеров.
       parameters:
         - name: tag
           in: query
@@ -595,18 +736,18 @@ paths:
           schema:
             type: integer
             description: Имя тэга
-        - name: begin_time
+        - name: date_start
           in: query
           required: true
           schema:
             type: string
-            description: Дата начала времени 2016-12-26 15:53:22 -05:00
-        - name: end_time
+            description: Дата начала времени 2016-12-26 15:53:22
+        - name: date_end
           in: query
           required: true
           schema:
             type: string
-            description: Даа конца времени 2016-12-26 15:53:22 -05:00
+            description: Даа конца времени 2016-12-26 15:53:22
             
       description: Получаем список блоков с уровнем Main.
       responses:
@@ -618,6 +759,131 @@ paths:
                 title: Result
                 type: string
                 
+  /?method=GetTagLogAndAnchorsMo:
+    get:
+      tags: 
+      - Новое
+      summary: Получаем лог по тэгу с данными анкеров и мат. обработчика
+      description: Получаем лог по тэгу с данными анкеров и мат. обработчика.
+      
+      parameters:
+        - name: tag
+          in: query
+          required: true
+          schema:
+            type: integer
+            description: Имя тэга
+        - name: date_start
+          in: query
+          required: true
+          schema:
+            type: string
+            description: Дата начала времени 2016-12-26 15:53:22
+        - name: date_end
+          in: query
+          required: true
+          schema:
+            type: string
+            description: Даа конца времени 2016-12-26 15:53:22
+
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+                
+  /?method=SetTagsZeroPower:
+    get:
+      tags: 
+      - Новое
+      summary: Обновляем у всех тэгов которые видно мощность на 0
+      description: Обновляем у всех тэгов которые видно мощность на 0
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string
+                
+  /?method=GetTagPowers:
+    get:
+      tags: 
+      - Новое
+      summary: Получаем мощности у тэгов по данным, хранящихся на МО
+      description: Получаем мощности у тэгов по данным, хранящихся на МО
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string          
+              
+  /?method=GetTagsMonitors:
+    get:
+      tags: 
+      - Новое
+      summary: Получаем информацию о мониторинге с РТЛС
+      description: Получаем информацию о мониторинге с РТЛС
+      parameters:
+        - name: tag
+          in: query
+          required: true
+          schema:
+            type: integer
+            description: Имя тэга
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string  
+                
+  /?method=GetTagMonitors:
+    get:
+      tags: 
+      - Новое
+      summary: Получаем информацию о мониторинге с РТЛС по тэгу
+      description: Получаем информацию о мониторинге с РТЛС по тэгу
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string          
+              
+  /?method=GetTagMonitor:
+    get:
+      tags: 
+      - Новое
+      summary: Получаем мощности у тэгов по данным, хранящихся на МО
+      description: Получаем мощности у тэгов по данным, хранящихся на МО
+      parameters:
+        - name: tag
+          in: query
+          required: true
+          schema:
+            type: integer
+            description: Имя тэга
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                title: Result
+                type: string  
+                  
   /?method=check_point:
     get:
       tags: 

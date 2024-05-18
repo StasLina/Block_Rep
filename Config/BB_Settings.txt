@@ -61,6 +61,3 @@ postgres_password='VJntantkm'
 
 ue_host=192.168.10.250
 ue_port=8282
-
-is_sent_update_speed=false
-is_sent_update_tag_power_db=false

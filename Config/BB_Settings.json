@@ -1,18 +1,28 @@
 {
-  "max_count_leave":7,
+  "max_count_leave": 7,
+  "max_count_error": 7,
+  "max_count_speed": 7,
+  "max_speed": 1.5,
+  "is_speed_counter_enabled": true,
+  "is_error_counter_enabled": false,
+  "is_allow_leave_block_if_speed_normal": true,
+  "is_determine_leave_block_if_speed_counter": true,
+  "is_sent_update_speed": false,
+  "is_sent_update_tag_power_db": false,
+  "is_log_thread_enabled": false,
   "list_blocks_leave_handle": [
-  {
-    "name": "GK_Oper",
-	"counter": 3,
-	"distance": 5
-  },
-  {
-	"name": "GK_8900_1",
-	"counter": 8
-  },
-  {
-	"name": "SC_0",
-	"counter": 8
-  }
+    {
+      "name": "GK_Oper",
+      "counter": 3,
+      "distance": 5
+    },
+    {
+      "name": "GK_8900_1",
+      "counter": 8
+    },
+    {
+      "name": "SC_0",
+      "counter": 8
+    }
   ]
 }
