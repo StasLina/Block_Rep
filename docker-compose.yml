@@ -1,6 +1,6 @@
 version: '1.0'
 services:
-  mo_test:
+  mte_test:
     build: ./DockerTest
     ports:
       - "8001:8001"
@@ -8,7 +8,7 @@ services:
     volumes:
       - /home/mfss/Block/Test:/foo
     restart: unless-stopped
-  mo_prod:
+  mte_prod:
     build: ./DockerProd
     ports:
       - "8001:8001"
@@ -25,7 +25,7 @@ services:
     volumes:
       - ./Doc:/foo
     depends_on:
-      - mo_test  
+      - mte_prod 
     restart: unless-stopped
   portainer:
     image: portainer/portainer-ce
