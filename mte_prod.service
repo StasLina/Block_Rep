@@ -1,0 +1,19 @@
+[Unit]
+  Description=Block_test
+  After=sshd.service
+[Service]
+  Environment="LD_LIBRARY_PATH=/home/mfss/StasLin/cmake/block/Poco/lib"
+  ExecStart=/home/mfss/StasLin/cmake/block/Block_Rep/bin/Block target_platform=linux bb_setting-path=/home/mfss/Block/Prod bb_local-path=/home/mfss/Block/Prod bb_exception-path=/home/mfss/Block/Prod/logs path_to_coordinates_of_the_block_shape=/home/mfss/Block/Prod
+  #ExecStart=/usr/local/bin/Block_r bb_setting-path=/home/mfss/StasLin/cmake/block target_platform=linux 
+  #ExecStart=/root/Block_Rep/bin/Block target_platform=linux bb_setting-path=/root/Block_Rep bb_local-path=/root/Block_Rep coordinates_of_the_block_shape=/root/Block_Rep bb_exception-path=/root/Block_Rep/logs 
+  Type=simple
+  KillMode=process
+  SyslogIdentifier=block
+  SyslogFacility=daemon 
+  RunTimeMaxSec=10s
+  Restart=always
+  RestartSec=5
+  #RunTimeMaxSec=1d
+  #RunTimeMaxSec=10s 
+[Install]
+  WantedBy=multi-user.target
