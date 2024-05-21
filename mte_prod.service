@@ -1,5 +1,5 @@
 [Unit]
-  Description=Block_test
+  Description=mte_prod
   After=sshd.service
 [Service]
   Environment="LD_LIBRARY_PATH=/home/mfss/StasLin/cmake/block/Poco/lib"
